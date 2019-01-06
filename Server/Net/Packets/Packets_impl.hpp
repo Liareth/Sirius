@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <cstring>
 
-namespace BioNet
+namespace Net::Packets::BioNet
 {
     struct BNES
     {
@@ -11,12 +11,12 @@ namespace BioNet
         std::uint16_t port;
         std::uint8_t enumerateType;
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
     };
 
-    std::size_t BNES::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNES::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -36,7 +36,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNES::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNES::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -56,7 +56,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNES::Size() const
+    inline std::size_t BNES::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -81,15 +81,15 @@ namespace BioNet
         std::uint8_t legacyCdKeyLength; // max 8
         char* legacyCdKey; // sized by legacyCdKeyLength
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
 
-        BNCS();
-        ~BNCS();
+        inline BNCS();
+        inline ~BNCS();
     };
 
-    std::size_t BNCS::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNCS::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -164,7 +164,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNCS::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNCS::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -236,7 +236,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNCS::Size() const
+    inline std::size_t BNCS::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -269,12 +269,12 @@ namespace BioNet
         char magic[4];
         std::uint16_t port;
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
     };
 
-    std::size_t BNDS::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNDS::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -290,7 +290,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNDS::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNDS::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -306,7 +306,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNDS::Size() const
+    inline std::size_t BNDS::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -326,15 +326,15 @@ namespace BioNet
         char* build; // sized by buildLength
         std::int16_t gameType;
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
 
-        BNDR();
-        ~BNDR();
+        inline BNDR();
+        inline ~BNDR();
     };
 
-    std::size_t BNDR::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNDR::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -390,7 +390,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNDR::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNDR::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -443,7 +443,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNDR::Size() const
+    inline std::size_t BNDR::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -472,15 +472,15 @@ namespace BioNet
         std::uint8_t cdKeyLength;
         char* cdKey; // sized by cdKeyLength
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
 
-        BNVS_CdKey();
-        ~BNVS_CdKey();
+        inline BNVS_CdKey();
+        inline ~BNVS_CdKey();
     };
 
-    std::size_t BNVS_CdKey::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNVS_CdKey::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -500,7 +500,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNVS_CdKey::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNVS_CdKey::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -519,7 +519,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNVS_CdKey::Size() const
+    inline std::size_t BNVS_CdKey::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -545,15 +545,15 @@ namespace BioNet
         std::uint8_t passwordLength; // only if (status=='P')
         char* password; // only if (status=='P'), sized by passwordLength
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
 
-        BNVS();
-        ~BNVS();
+        inline BNVS();
+        inline ~BNVS();
     };
 
-    std::size_t BNVS::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNVS::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -613,7 +613,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNVS::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNVS::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -671,7 +671,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNVS::Size() const
+    inline std::size_t BNVS::Size() const
     {
         std::size_t structSize = 0;
         for (std::size_t i = 0; i < numCdKeys; ++i) { structSize += cdKeys[i].Size(); }
@@ -707,15 +707,15 @@ namespace BioNet
         std::uint8_t msChallengeLength; // only if (response!='R')
         char* msChallenge; // only if (response!='R'), sized by msChallengeLength
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
 
-        BNCR();
-        ~BNCR();
+        inline BNCR();
+        inline ~BNCR();
     };
 
-    std::size_t BNCR::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNCR::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -796,7 +796,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNCR::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNCR::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -874,7 +874,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNCR::Size() const
+    inline std::size_t BNCR::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -906,12 +906,12 @@ namespace BioNet
         std::uint8_t messageId;
         std::uint32_t sessionId;
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
     };
 
-    std::size_t BNLR::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNLR::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -935,7 +935,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNLR::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNLR::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -959,7 +959,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNLR::Size() const
+    inline std::size_t BNLR::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -996,15 +996,15 @@ namespace BioNet
         std::uint8_t nwsyncHashLength; // only if (nwsyncHashCount>0)
         char* nwsyncHash; // only if (nwsyncHashCount>0), sized by nwsyncHashLength
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
 
-        BNXR();
-        ~BNXR();
+        inline BNXR();
+        inline ~BNXR();
     };
 
-    std::size_t BNXR::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNXR::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1129,7 +1129,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNXR::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNXR::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1251,7 +1251,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNXR::Size() const
+    inline std::size_t BNXR::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -1295,12 +1295,12 @@ namespace BioNet
         char magic[4];
         std::uint16_t port;
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
     };
 
-    std::size_t BNXI::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNXI::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1316,7 +1316,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNXI::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNXI::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1332,7 +1332,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNXI::Size() const
+    inline std::size_t BNXI::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -1347,12 +1347,12 @@ namespace BioNet
         std::uint8_t messageId;
         std::uint32_t sessionId;
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
     };
 
-    std::size_t BNLM::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNLM::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1376,7 +1376,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNLM::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNLM::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1400,7 +1400,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNLM::Size() const
+    inline std::size_t BNLM::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -1417,12 +1417,12 @@ namespace BioNet
         std::uint8_t rejectReason; // only if (response=='R')
         std::uint32_t applicationId; // only if (response=='A')
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
     };
 
-    std::size_t BNVR::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNVR::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1452,7 +1452,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNVR::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNVR::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1482,7 +1482,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNVR::Size() const
+    inline std::size_t BNVR::Size() const
     {
         std::size_t structSize = 0;
         return structSize +
@@ -1501,15 +1501,15 @@ namespace BioNet
         std::uint8_t serverNameLen;
         char* serverName; // sized by serverNameLen
 
-        std::size_t Read(const std::byte* buff, std::size_t maxLen);
-        std::size_t Write(std::byte* buff, std::size_t maxLen);
-        std::size_t Size() const;
+        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);
+        inline std::size_t Write(std::byte* buff, std::size_t maxLen);
+        inline std::size_t Size() const;
 
-        BNER();
-        ~BNER();
+        inline BNER();
+        inline ~BNER();
     };
 
-    std::size_t BNER::Read(const std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNER::Read(const std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1545,7 +1545,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNER::Write(std::byte* buff, std::size_t maxLen)
+    inline std::size_t BNER::Write(std::byte* buff, std::size_t maxLen)
     {
         const std::byte* start = buff;
         const std::byte* end = buff + maxLen;
@@ -1580,7 +1580,7 @@ namespace BioNet
         return static_cast<std::size_t>(buff - start);
     }
 
-    std::size_t BNER::Size() const
+    inline std::size_t BNER::Size() const
     {
         std::size_t structSize = 0;
         return structSize +

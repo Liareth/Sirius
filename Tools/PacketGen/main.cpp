@@ -254,15 +254,15 @@ void PrintStruct(PacketStruct& packet)
     }
 
     std::printf("\n");
-    std::printf("        std::size_t Read(const std::byte* buff, std::size_t maxLen);\n");
-    std::printf("        std::size_t Write(std::byte* buff, std::size_t maxLen);\n");
-    std::printf("        std::size_t Size() const;\n");
+    std::printf("        inline std::size_t Read(const std::byte* buff, std::size_t maxLen);\n");
+    std::printf("        inline std::size_t Write(std::byte* buff, std::size_t maxLen);\n");
+    std::printf("        inline std::size_t Size() const;\n");
 
     if (!dynNames.empty())
     {
         std::printf("\n");
-        std::printf("        %s();\n", packet.name.c_str());
-        std::printf("        ~%s();\n", packet.name.c_str());
+        std::printf("        inline %s();\n", packet.name.c_str());
+        std::printf("        inline ~%s();\n", packet.name.c_str());
     }
 
     std::printf("    };\n\n");
@@ -373,17 +373,17 @@ void PrintStruct(PacketStruct& packet)
         std::printf("        return static_cast<std::size_t>(buff - start);\n");
     };
 
-    std::printf("    std::size_t %s::Read(const std::byte* buff, std::size_t maxLen)\n", packet.name.c_str());
+    std::printf("    inline std::size_t %s::Read(const std::byte* buff, std::size_t maxLen)\n", packet.name.c_str());
     std::printf("    {\n");
     printBody(false);
     std::printf("    }\n\n");
 
-    std::printf("    std::size_t %s::Write(std::byte* buff, std::size_t maxLen)\n", packet.name.c_str());
+    std::printf("    inline std::size_t %s::Write(std::byte* buff, std::size_t maxLen)\n", packet.name.c_str());
     std::printf("    {\n");
     printBody(true);
     std::printf("    }\n\n");
 
-    std::printf("    std::size_t %s::Size() const\n", packet.name.c_str());
+    std::printf("    inline std::size_t %s::Size() const\n", packet.name.c_str());
     std::printf("    {\n");
     std::printf("        std::size_t structSize = 0;\n");
 
@@ -544,7 +544,7 @@ int main(int argc, char** argv)
 
         PacketDesc desc;
 
-        desc.namespace_ = std::move(packetNameSplit[0]);
+        desc.namespace_ = "Net::Packets::" + std::move(packetNameSplit[0]);
         desc.name = std::move(packetNameSplit[1]);
 
         for (std::size_t i = 1; i < lines.size(); ++i)

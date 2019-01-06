@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.7)
 project(Sirius)
 
-set(CMAKE_POSITION_INDEPENDENT_CODE FALSE)
-
-set(STANDARD_FLAGS "-m32 -march=pentium4 -fdiagnostics-show-option -fno-omit-frame-pointer -fno-pic")
+set(STANDARD_FLAGS "-fdiagnostics-show-option -fno-omit-frame-pointer -ggdb")
 set(WARNING_FLAGS_CXX "-Wall -Wextra")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${STANDARD_FLAGS}")
@@ -16,5 +14,8 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTAR_RELEASE_FINAL=0 -DTAR_
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build-Artifacts)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build-Artifacts)
 
-add_subdirectory(Engine)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+add_subdirectory(Game)
+add_subdirectory(Server)
 add_subdirectory(Tools)

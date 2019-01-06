@@ -1,0 +1,25 @@
+BioNet.BNXR
+DATA_ARR    magic               char 4
+DATA        port                std::uint16_t
+DATA        protocolVersion     std::uint8_t
+DATA        passworded          std::uint8_t
+DATA        minLevel            std::uint8_t
+DATA        maxLevel            std::uint8_t
+DATA        players             std::uint8_t
+DATA        maxPlayers          std::uint8_t
+DATA        localVault          std::uint8_t
+DATA        pvpSetting          std::uint8_t
+DATA        pauseAndPlay        std::uint8_t
+DATA        onePartyOnly        std::uint8_t
+DATA        enforceLegalChar    std::uint8_t
+DATA        itemLevelRestrict   std::uint8_t
+DATA        expansion           std::uint8_t
+DATA        moduleNameLen       std::uint8_t
+DATA_DYN    moduleName          char                                moduleNameLen
+DATA        nwsyncVersion       std::uint8_t
+DATA        nwsyncUrlLength     std::uint8_t
+DATA_DYN    nwsyncUrl           char                                nwsyncUrlLength
+DATA        nwsyncHashCount     std::uint8_t
+DATA_C      nwsyncHashFlags     std::uint8_t    nwsyncHashCount>0
+DATA_C      nwsyncHashLength    std::uint8_t    nwsyncHashCount>0
+DATA_DYN_C  nwsyncHash          char            nwsyncHashCount>0   nwsyncHashLength

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Combat/DamageType.hpp"
-#include "Skill/Combat.hpp"
+#include "Game/Combat/DamageType.hpp"
+#include "Game/Skill/Combat.hpp"
 #include <vector>
 
 namespace Sirius::Combat

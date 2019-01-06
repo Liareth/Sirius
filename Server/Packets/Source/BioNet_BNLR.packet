@@ -1,0 +1,5 @@
+BioNet.BNLR
+DATA_ARR    magic               char 4
+DATA        port                std::uint16_t
+DATA        messageId           std::uint8_t
+DATA        sessionId           std::uint32_t

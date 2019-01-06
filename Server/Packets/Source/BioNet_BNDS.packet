@@ -1,0 +1,3 @@
+BioNet.BNDS
+DATA_ARR    magic               char 4
+DATA        port                std::uint16_t

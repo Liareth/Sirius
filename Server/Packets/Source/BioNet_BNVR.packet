@@ -1,0 +1,5 @@
+BioNet.BNVR
+DATA_ARR    magic               char 4
+DATA        response            char
+DATA_C      rejectReason        std::uint8_t    response=='R'
+DATA_C      applicationId       std::uint32_t   response=='A'

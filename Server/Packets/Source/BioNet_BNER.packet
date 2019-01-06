@@ -1,0 +1,7 @@
+BioNet.BNER
+DATA_ARR    magic               char 4
+DATA        protocol            char
+DATA        port                std::uint16_t
+DATA        enumerateType       std::uint8_t
+DATA        serverNameLen       std::uint8_t
+DATA_DYN    serverName          char                serverNameLen

@@ -15,7 +15,7 @@ namespace Sirius::Skill
             Ranged_Primitive,
             Ranged_Ballistic,
             Ranged_Alientech,
-            
+
             Psionics_Physical,
             Psionics_Mental,
             Psionics_Augment,

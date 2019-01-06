@@ -1,5 +1,5 @@
-#include "Combat/Combat.hpp"
-#include "Random/Dice.hpp"
+#include "Game/Combat/Combat.hpp"
+#include "Game/Random/Dice.hpp"
 
 #include <unordered_map>
 
@@ -21,7 +21,7 @@ namespace Sirius::Combat
             resolvedAttackHit.defenderRoll = defenderRoll;
 
             float attackerSkillContrib =
-                situation->attackerSkillSet.skillLevel * 
+                situation->attackerSkillSet.skillLevel *
                 situation->attackerSkillSet.attackRollSkillMultiplier;
 
             float attackerPrimaryStatContrib =
@@ -33,7 +33,7 @@ namespace Sirius::Combat
                 situation->attackerSkillSet.attackRollSecondaryStatMultiplier;
 
             float defenderSkillContrib =
-                situation->defenderSkillSet.skillLevel * 
+                situation->defenderSkillSet.skillLevel *
                 situation->defenderSkillSet.attackRollSkillMultiplier;
 
             float defenderPrimaryStatContrib =
@@ -44,7 +44,7 @@ namespace Sirius::Combat
                 situation->defenderSkillSet.skillSecondaryStat *
                 situation->defenderSkillSet.attackRollSecondaryStatMultiplier;
 
-            float delta = 
+            float delta =
                 (attackerRoll + attackerSkillContrib + attackerPrimaryStatContrib + attackerSecondaryStatContrib) -
                 (defenderRoll + defenderSkillContrib + defenderPrimaryStatContrib + defenderSecondaryStatContrib);
 
@@ -97,7 +97,7 @@ namespace Sirius::Combat
         }
 
         // Skill-based damage is excluded from crits.
-        totalDamageMap[situation->offensiveData.baseDamageSkillType] += 
+        totalDamageMap[situation->offensiveData.baseDamageSkillType] +=
             baseDamageSkillContrib + baseDamagePrimaryStatContrib +baseDamageSecondaryStatContrib;
 
         for (auto& totalDamage : totalDamageMap)

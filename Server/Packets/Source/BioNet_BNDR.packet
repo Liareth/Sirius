@@ -1,0 +1,10 @@
+BioNet.BNDR
+DATA_ARR    magic               char 4
+DATA        port                std::uint16_t
+DATA        servDetailsLength   std::uint8_t
+DATA_DYN    servDetails         char            servDetailsLength
+DATA        modDescLength       std::uint8_t
+DATA_DYN    modDesc             char            modDescLength
+DATA        buildLength         std::uint8_t
+DATA_DYN    build               char            buildLength
+DATA        gameType            std::int16_t

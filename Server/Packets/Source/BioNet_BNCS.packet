@@ -1,0 +1,14 @@
+BioNet.BNCS
+DATA_ARR    magic               char 4
+DATA        port                std::uint16_t
+DATA        connectionType      std::uint8_t
+DATA        versionNumber       std::uint32_t
+DATA        expansion           std::uint16_t
+DATA        language            std::uint8_t
+DATA        appId               std::uint32_t
+DATA        playerNameLength    std::uint8_t                        128
+DATA_DYN    playerName          char            playerNameLength
+DATA        cdKeyLength         std::uint8_t                        8
+DATA_DYN    cdKey               char            cdKeyLength
+DATA        legacyCdKeyLength   std::uint8_t                        8
+DATA_DYN    legacyCdKey         char            legacyCdKeyLength

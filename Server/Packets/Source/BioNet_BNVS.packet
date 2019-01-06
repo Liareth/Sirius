@@ -1,0 +1,13 @@
+BioNet.BNVS
+DATA_ARR        magic               char 4
+DATA            status              char
+DATA            numCdKeys           std::uint8_t
+STRUCT_DYN      cdKeys              CdKey                               numCdKeys
+{
+    DATA        cdKeyLength         std::uint8_t
+    DATA_DYN    cdKey               char                                cdKeyLength
+}
+DATA            msPasswordLength    std::uint8_t
+DATA_DYN        msPassword          char                                msPasswordLength
+DATA_C          passwordLength      std::uint8_t    status=='P'
+DATA_DYN_C      password            char            status=='P'         passwordLength

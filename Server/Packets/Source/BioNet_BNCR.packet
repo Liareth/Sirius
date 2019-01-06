@@ -1,0 +1,11 @@
+BioNet.BNCR
+DATA_ARR    magic               char 4
+DATA        port                std::uint16_t
+DATA        response            char
+DATA_C      rejectReason        std::uint8_t    response=='R'
+DATA_C      pwChallengeLength   std::uint8_t    response=='P'
+DATA_DYN_C  pwChallenge         char            response=='P'     pwChallengeLength
+DATA_C      keyChallengeLength  std::uint8_t    response!='R'
+DATA_DYN_C  keyChallenge        char            response!='R'     keyChallengeLength
+DATA_C      msChallengeLength   std::uint8_t    response!='R'
+DATA_DYN_C  msChallenge         char            response!='R'     msChallengeLength

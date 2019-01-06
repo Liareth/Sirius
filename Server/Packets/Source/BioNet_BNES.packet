@@ -1,0 +1,4 @@
+BioNet.BNES
+DATA_ARR    magic               char 4
+DATA        port                std::uint16_t
+DATA        enumerateType       std::uint8_t

@@ -1,6 +1,6 @@
 find_package(PythonLibs 2.7)
 
-add_executable(DamageSim 
+add_executable(DamageSim
     main.cpp
     simulation.cpp simulation.hpp
     matplotlibcpp.h

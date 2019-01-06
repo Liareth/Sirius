@@ -1,4 +1,4 @@
-#include "Random/Dice.hpp"
+#include "Game/Random/Dice.hpp"
 
 namespace Sirius::Random
 {
